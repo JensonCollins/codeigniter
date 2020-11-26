@@ -33,7 +33,7 @@ class Forget_Password extends CI_Controller
         if(!empty($employee))
         {
         $random = $this->generateRandomString();
-        $pdata['password'] = $this->encryption->encrypt($random);
+        $pdata['password'] = $this->encrypt->encrypt($random);
 
             $this->db->where('user_id', $employee->user_id);
             $this->db->update('tbl_user', $pdata);

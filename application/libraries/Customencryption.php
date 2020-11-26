@@ -13,7 +13,7 @@ if (!defined('BASEPATH')) {
  *  version: 1.0
  */
 
-class Encryption
+class Customencryption
 {
     public $skey = 'ab'; // you can change it
 

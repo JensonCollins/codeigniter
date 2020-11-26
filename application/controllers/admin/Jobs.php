@@ -22,7 +22,8 @@ class Jobs extends Admin_Controller
                 'height' => '150px',
             ),
         );
-
+        $this->perPage = 15;
+        $this->load->library('Ajax_pagination');
     }
 
     public function edit_job($order_id = null,$order_part_id = null)
@@ -68,7 +69,7 @@ class Jobs extends Admin_Controller
         $order_id = $this->global_model->save($data, $id);
 
         if(empty($id)) {
-            $this->global_model->save($id);
+            $this->global_model->save($data, $id);
         }
 
     	$order_part_id = $this->input->post('order_part_id', true);
@@ -81,12 +82,11 @@ class Jobs extends Admin_Controller
 
     	if(!empty($order_part_id))
     	{
-
 			$now = date('Y-m-d H:i:s');
 
 			$query = "UPDATE `tbl_order_parts` SET part_id = '$parts_id', quantity = '$part_qty', Notes = '$job_notes', Status = '$mode_payment', OrderPrice = '$order_price', modified = '$now' where id = '$order_part_id' AND order_id = '$id'";
 
-			$this->global_model->run_custom_query($query);
+			$this->db->query($query);
     	}
 
         $type = 'success';
@@ -96,65 +96,47 @@ class Jobs extends Admin_Controller
     }
 
     /*** Manage orders ***/
-    public function manage_job($id=1)
-    {	
-
-		$per_page_arr = array('10', '25', '50', '100');
-
-		$get_q = $_GET;
-
-		$data['per_page'] = isset($_GET['per_page']) && in_array($_GET['per_page'], $per_page_arr)?$_GET['per_page']:"100";
-
-		// PAGINATION
-		$config = array();
-		//$config['suffix']='?'.$_SERVER['QUERY_STRING'];
-        $config["base_url"] = base_url() . "admin/jobs/manage_job";
-
-        $total_row = $this->jobs_model->record_count();
-
-        $config["first_url"] = base_url()."admin/jobs/manage_job/1";
-        $config["total_rows"] = $total_row;
-        $config["per_page"] = $per_page = $data['per_page'];
-        $config["uri_segment"] = $this->uri->total_segments();
-        $config['use_page_numbers'] = TRUE;
-        $config['num_links'] = 10; //$total_row
-        $config['cur_tag_open'] = '&nbsp;<a class="current">';
-        $config['cur_tag_close'] = '</a>';
-        $config['full_tag_open'] = "<ul class='pagination'>";
-		$config['full_tag_close'] ="</ul>";
-		$config['num_tag_open'] = '<li>';
-		$config['num_tag_close'] = '</li>';
-		$config['cur_tag_open'] = "<li class='disabled'><li class='active'><a href='#'>";
-		$config['cur_tag_close'] = "<span class='sr-only'></span></a></li>";
-		$config['next_tag_open'] = "<li>";
-		$config['next_tagl_close'] = "</li>";
-		$config['prev_tag_open'] = "<li>";
-		$config['prev_tagl_close'] = "</li>";
-		$config['first_link'] = 'First';
-		$config['first_tag_open'] = "<li>";
-		$config['first_tagl_close'] = "</li>";
-		$config['last_link'] = 'Last';
-		$config['last_tag_open'] = "<li>";
-		$config['last_tagl_close'] = "</li>";
-        $this->pagination->initialize($config);
-        //echo $this->uri->segment(5);die;
-        if($this->uri->segment(3)){
-        	$cur_page = $id;
-        	$pagi = array("cur_page"=>($cur_page-1)*$per_page, "per_page"=>$per_page);
-        }
-        else{
-        	$pagi = array("cur_page"=>0, "per_page"=>$per_page);
-        }
-
-        $data["order_parts"] = $result = $this->jobs_model->fetch_data($pagi);
-
-        $str_links = $this->pagination->create_links();
-
-        $data["links"] = $str_links;
+    public function manage_job(){
+        $data['order_parts'] = $this->jobs_model->getRows(array('limit' => $this->perPage));
+        
+        $totalRec = $this->jobs_model->record_count();
+        $config['target'] = '#itemList';
+        $config['base_url'] = base_url() . 'admin/jobs/ajaxPaginationData';
+        $config['total_rows'] = $totalRec;
+        $config['per_page'] = $this->perPage;
+        $config['link_func'] = 'searchFilter';
+        $this->ajax_pagination->initialize($config);
       	
         $data['title'] = 'Manage Jobs';
         $data['subview'] = $this->load->view('admin/jobs/manage_job', $data, true);
         $this->load->view('admin/_layout_main', $data);
+    }
+    
+    function ajaxPaginationData() {
+        $conditions = array();
+        $page = $this->input->post('page');
+        if (!$page) {
+            $offset = 0;
+        } else {
+            $offset = $page;
+        }
+
+        $conditions['search']['keywords'] = $this->input->post('keywords');
+        
+        $totalRec = count($this->jobs_model->getRows($conditions));
+        
+        $config['target'] = '#itemList';
+        $config['base_url'] = base_url() . 'admin/jobs/ajaxPaginationData';
+        $config['total_rows'] = $totalRec;
+        $config['per_page'] = $this->perPage;
+        $config['link_func'] = 'searchFilter';
+        $this->ajax_pagination->initialize($config);
+
+        $conditions['start'] = $offset;
+        $conditions['limit'] = $this->perPage;
+        $data['order_parts'] = $this->jobs_model->getRows($conditions);
+        
+        $this->load->view('admin/jobs/manage_job_pagination_table', $data);
     }
 
     /*** Delete orders ***/
@@ -414,4 +396,65 @@ class Jobs extends Admin_Controller
 	    $data['title'] = 'View Job';
 	    $data['subview'] = $this->load->view('admin/jobs/print_all_route', $data);		
 	}
+        
+        
+//    public function manage_job($id=1){	
+//
+//		$per_page_arr = array('10', '25', '50', '100');
+//
+//		$get_q = $_GET;
+//
+//		$data['per_page'] = isset($_GET['per_page']) && in_array($_GET['per_page'], $per_page_arr)?$_GET['per_page']:"100";
+//
+//		// PAGINATION
+//		$config = array();
+//		//$config['suffix']='?'.$_SERVER['QUERY_STRING'];
+//        $config["base_url"] = base_url() . "admin/jobs/manage_job";
+//
+//        $total_row = $this->jobs_model->record_count();
+//
+//        $config["first_url"] = base_url()."admin/jobs/manage_job/1";
+//        $config["total_rows"] = $total_row;
+//        $config["per_page"] = $per_page = $data['per_page'];
+//        $config["uri_segment"] = $this->uri->total_segments();
+//        $config['use_page_numbers'] = TRUE;
+//        $config['num_links'] = 10; //$total_row
+//        $config['cur_tag_open'] = '&nbsp;<a class="current">';
+//        $config['cur_tag_close'] = '</a>';
+//        $config['full_tag_open'] = "<ul class='pagination'>";
+//		$config['full_tag_close'] ="</ul>";
+//		$config['num_tag_open'] = '<li>';
+//		$config['num_tag_close'] = '</li>';
+//		$config['cur_tag_open'] = "<li class='disabled'><li class='active'><a href='#'>";
+//		$config['cur_tag_close'] = "<span class='sr-only'></span></a></li>";
+//		$config['next_tag_open'] = "<li>";
+//		$config['next_tagl_close'] = "</li>";
+//		$config['prev_tag_open'] = "<li>";
+//		$config['prev_tagl_close'] = "</li>";
+//		$config['first_link'] = 'First';
+//		$config['first_tag_open'] = "<li>";
+//		$config['first_tagl_close'] = "</li>";
+//		$config['last_link'] = 'Last';
+//		$config['last_tag_open'] = "<li>";
+//		$config['last_tagl_close'] = "</li>";
+//        $this->pagination->initialize($config);
+//        //echo $this->uri->segment(5);die;
+//        if($this->uri->segment(3)){
+//        	$cur_page = $id;
+//        	$pagi = array("cur_page"=>($cur_page-1)*$per_page, "per_page"=>$per_page);
+//        }
+//        else{
+//        	$pagi = array("cur_page"=>0, "per_page"=>$per_page);
+//        }
+//
+//        $data["order_parts"] = $result = $this->jobs_model->fetch_data($pagi);
+//
+//        $str_links = $this->pagination->create_links();
+//
+//        $data["links"] = $str_links;
+//      	
+//        $data['title'] = 'Manage Jobs';
+//        $data['subview'] = $this->load->view('admin/jobs/manage_job', $data, true);
+//        $this->load->view('admin/_layout_main', $data);
+//    }
 }

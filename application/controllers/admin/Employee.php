@@ -18,7 +18,7 @@ class Employee extends Admin_Controller
         $data['title'] = 'Add Employee';
 
         if (!empty($id)) {
-            $data['employee_id'] = $this->encryption->decrypt($id);
+            $data['employee_id'] = $this->encrypt->decrypt($id);
         } else {
             $data['employee_id'] = null;
         }
@@ -105,11 +105,11 @@ class Employee extends Admin_Controller
         $password_flag = $this->input->post('password_flag');
 
         if(empty($employee_id)){
-            $data['password'] = $this->encryption->encrypt($this->input->post('password'));
+            $data['password'] = $this->encrypt->encrypt($this->input->post('password'));
         }
 
         if($password_flag == 'ok'){
-            $data['password'] = $this->encryption->encrypt($this->input->post('password'));
+            $data['password'] = $this->encrypt->encrypt($this->input->post('password'));
         }
 
         // save image Process
@@ -177,7 +177,7 @@ class Employee extends Admin_Controller
     public function delete_user($id = null)
     {
         if (!empty($id)) {
-            $id = $this->encryption->decrypt($id);
+            $id = $this->encrypt->decrypt($id);
             $user_id = $this->session->userdata('employee_id');
 
             //checking login employee trying delete his own account

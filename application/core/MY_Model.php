@@ -53,9 +53,9 @@ class MY_Model extends CI_Model
             $method = 'result';
         }
 
-        if(!$this->_order_by) { 
-            $this->db->order_by($this->_order_by); 
-        }
+		if (!$this->db->order_by($this->_order_by)) {
+			$this->db->order_by($this->_order_by, $this->_order);
+		}
 
         return $this->db->get($this->_table_name)->$method();
     }

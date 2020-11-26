@@ -67,48 +67,54 @@ class Orders extends Admin_Controller {
         $order_id = $this->global_model->save($data, $id);
 
         if (empty($id)) {
-            $this->global_model->save($id);
+            $this->global_model->save($data, $id);
         }
 
         if (empty($id)) {
-            if (empty($this->input->post('sel_parts', true))) {
+        	$sel_parts = $this->input->post('sel_parts', true);
+            if (empty($sel_parts)) {
                 $parts_array = '';
             } else {
                 $parts_array = $this->input->post('sel_parts', true);
             }
 
-            if (empty($this->input->post('part_qty', true))) {
+            $input_part_qty = $this->input->post('part_qty', true);
+            if (empty($input_part_qty)) {
                 $part_qty = '';
             } else {
                 $part_qty = $this->input->post('part_qty', true);
             }
 
-            if (empty($this->input->post('mode_payment', true))) {
+            $input_mode_payment = $this->input->post('mode_payment', true);
+            if (empty($input_mode_payment)) {
                 $mode_payment = '';
             } else {
                 $mode_payment = '';
             }
 
-
-            if (empty($this->input->post('job_notes', true))) {
+			$input_job_notes = $this->input->post('job_notes', true);
+            if (empty($input_job_notes)) {
                 $job_notes = '';
             } else {
                 $job_notes = '';
             }
 
-            if (empty($this->input->post('order_price', true))) {
+			$input_order_price = $this->input->post('order_price', true);
+			if (empty($input_order_price)) {
                 $order_price = '';
             } else {
                 $order_price = $this->input->post('order_price', true);
             }
 
-            if (empty($this->input->post('mat_supplier', true))) {
+			$input_map_supplier = $this->input->post('mat_supplier', true);
+            if (empty($input_map_supplier)) {
                 $mat_supplier = '';
             } else {
                 $mat_supplier = $this->input->post('mat_supplier', true);
             }
 
-            if (empty($this->input->post('mat_cost', true))) {
+            $input_mat_cost = $this->input->post('mat_cost', true);
+            if (empty($input_mat_cost)) {
                 $mat_cost = '';
             } else {
                 $mat_cost = $this->input->post('mat_cost', true);
@@ -159,44 +165,50 @@ class Orders extends Admin_Controller {
                 }
             }
 
-            if (empty($this->input->post('sel_parts2', true))) {
+            $input_parts_array = $this->input->post('sel_parts2', true);
+            if (empty($input_parts_array)) {
                 $parts_array = '';
             } else {
                 $parts_array = $this->input->post('sel_parts2', true);
             }
 
-            if (empty($this->input->post('part_qty2', true))) {
+            $input_part_qty2 = $this->input->post('part_qty2', true);
+            if (empty($input_part_qty2)) {
                 $part_qty = '';
             } else {
                 $part_qty = $this->input->post('part_qty2', true);
             }
 
-            if (empty($this->input->post('mode_payment2', true))) {
+            $input_mode_payment2 = $this->input->post('mode_payment2', true);
+            if (empty($input_mode_payment2)) {
                 $mode_payment = '';
             } else {
                 $mode_payment = '';
             }
 
-
-            if (empty($this->input->post('job_notes2', true))) {
+			$input_job_notes2 = $this->input->post('job_notes2', true);
+            if (empty($input_job_notes2)) {
                 $job_notes = '';
             } else {
                 $job_notes = '';
             }
 
-            if (empty($this->input->post('order_price2', true))) {
+            $input_order_price2 = $this->input->post('order_price2', true);
+            if (empty($input_order_price2)) {
                 $order_price = '';
             } else {
                 $order_price = $this->input->post('order_price2', true);
             }
 
-            if (empty($this->input->post('mat_supplier2', true))) {
+            $input_mat_supplier2 = $this->input->post('mat_supplier2', true);
+            if (empty($input_mat_supplier2)) {
                 $mat_supplier = '';
             } else {
                 $mat_supplier = $this->input->post('mat_supplier2', true);
             }
 
-            if (empty($this->input->post('mat_cost2', true))) {
+            $input_mat_cost2 = $this->input->post('mat_cost2', true);
+            if (empty($input_mat_cost2)) {
                 $mat_cost = '';
             } else {
                 $mat_cost = $this->input->post('mat_cost2', true);

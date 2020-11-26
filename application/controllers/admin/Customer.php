@@ -62,11 +62,8 @@ class Customer extends Admin_Controller
         $this->tbl_customer('customer_id');
         $customer_id = $this->global_model->save($data, $id);
 
-        echo $customer_id;
-        var_dump(empty($id));
-
         if(empty($id)) {
-            $this->global_model->save($customer_id);
+            $this->global_model->save($data, $customer_id);
         }
 
         $type = 'success';

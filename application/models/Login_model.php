@@ -38,10 +38,10 @@ class Login_Model extends MY_Model
 
         $user = $this->get_by(array(
                 'user_name' => $this->input->post('user_name'),
-                'password' => $this->hash($this->input->post('password')),
+                'password' => $this->encrypt->hash($this->input->post('password')),
                     ), true);
 
-        if (count($user)) {
+        if ($user) {
             $data = array(
                     'user_name' => $user->user_name,
                     'name' => $user->name,
@@ -66,10 +66,6 @@ class Login_Model extends MY_Model
         return (bool) $this->session->userdata('loggedin');
     }
 
-    public function hash($string)
-    {
-        return hash('sha512', $string.config_item('encryption_key'));
-    }
     public function select_menu_by_uri($uriSegment)
     {
         $this->db->select('tbl_menu.*', false);

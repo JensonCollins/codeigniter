@@ -58,7 +58,14 @@
                         </thead>
                         <tbody>
                         <?php $counter = 1; $total = 0;?>
-                        <?php foreach($order_parts as $v_order):  $part_info = $CI->get_part_info($v_order->part_id); $total = $v_order->quantity*$part_info->Price + $total;?>
+                        <?php foreach($order_parts as $v_order) {
+							$part_info = $CI->get_part_info($v_order->part_id);
+							if ($part_info) {
+								$total = $v_order->quantity * $part_info->Price + $total;
+							} else {
+								$total = 0;
+							}
+                        ?>
                         <tr>
                             <td class="text-right"><?php echo $counter ; ?></td>
                             <td class="desc" style="text-align: center;"><h3><?php echo $v_order->id ?></h3></td>
@@ -76,7 +83,7 @@
                             </td>
                         </tr>
                             <?php $counter ++?>
-                        <?php endforeach; ?>
+                        <?php } ?>
                         </tbody>
                         <tfoot>
 
