@@ -67,6 +67,9 @@ class Parts extends Admin_Controller
             'OperationF5',
             'OperationF6',
             'OperationF7',
+            'OperationF8',
+            'OperationF9',
+            'OperationF10',
             'Issue',
             'Notes'
              ));

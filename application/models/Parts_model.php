@@ -30,7 +30,7 @@ class Parts_Model extends MY_Model
                         . "OR DrgNo LIKE '%" . $params['search']['keywords'] . "%' OR Material LIKE '%" . $params['search']['keywords'] . "%' OR Treatment LIKE '%" . $params['search']['keywords'] . "%' "
                         . "OR OperationF1 LIKE '%" . $params['search']['keywords'] . "%' OR OperationF2 LIKE '%" . $params['search']['keywords'] . "%' OR OperationF3 LIKE '%" . $params['search']['keywords'] . "%'"
                         . "OR OperationF4 LIKE '%" . $params['search']['keywords'] . "%' OR OperationF5 LIKE '%" . $params['search']['keywords'] . "%' OR OperationF6 LIKE '%" . $params['search']['keywords'] . "%'"
-                        . "OR OperationF7 LIKE '%" . $params['search']['keywords'] . "%' OR Issue LIKE '%" . $params['search']['keywords'] . "%' OR Customer LIKE '%" . $params['search']['keywords'] . "%'"
+                        . "OR OperationF7 LIKE '%" . $params['search']['keywords'] . "%' OR OperationF8 LIKE '%" . $params['search']['keywords'] . "%' OR OperationF9 LIKE '%" . $params['search']['keywords'] . "%' OR OperationF10 LIKE '%" . $params['search']['keywords'] . "%' OR Issue LIKE '%" . $params['search']['keywords'] . "%' OR Customer LIKE '%" . $params['search']['keywords'] . "%'"
                         . ")");
         }
 
