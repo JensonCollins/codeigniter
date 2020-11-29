@@ -74,7 +74,7 @@ class Orders_model extends MY_Model
         } elseif (!array_key_exists("start", $params) && array_key_exists("limit", $params)) {
             $this->db->limit($params['limit']);
         }
-        $this->db->order_by('tbl_orders.order_id', 'ASC');
+        $this->db->order_by('tbl_orders.order_id', 'DESC');
         $query = $this->db->get();
         return ($query->num_rows() > 0) ? $query->result_array() : FALSE;
     }
