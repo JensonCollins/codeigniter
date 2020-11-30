@@ -31,7 +31,7 @@
                                     <input type="text" name="ShortName" placeholder="Customer Short Name"
                                            value="<?php
                                            if (!empty($customer->ShortName)) {
-                                               echo $customer->ShortName;
+                                               echo htmlspecialchars($customer->ShortName);
                                            }
                                            ?>"
                                            class="form-control">
@@ -42,7 +42,7 @@
                                     <input type="text" name="LongName" placeholder="Customer Long Name"
                                            value="<?php
                                            if (!empty($customer->LongName)) {
-                                               echo $customer->LongName;
+                                               echo htmlspecialchars($customer->LongName);
                                            }
                                            ?>"
                                            class="form-control">
@@ -54,7 +54,7 @@
                                     <input type="text" placeholder="Contact" name="Contact"
                                            value="<?php
                                            if (!empty($customer->Contact)) {
-                                               echo $customer->Contact;
+                                               echo htmlspecialchars($customer->Contact);
                                            }
                                            ?>"
                                            class="form-control">
@@ -65,7 +65,7 @@
                                     <input type="text" placeholder="Phone" name="phone" onchange="check_phone(this.value)"
                                            value="<?php
                                            if (!empty($customer->phone)) {
-                                               echo $customer->phone;
+                                               echo htmlspecialchars($customer->phone);
                                            }
                                            ?>"
                                            class="form-control">

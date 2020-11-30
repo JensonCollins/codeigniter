@@ -528,6 +528,48 @@ class Orders extends Admin_Controller {
         $data['subview'] = $this->load->view('admin/orders/print_route', $data);
     }
 
+	public function view_t_card($order_id = null, $order_part_id = null) {
+		if (empty($order_id)) {
+			//redirect manage invoice
+			$this->message->norecord_found('admin/orders/manage_order');
+		}
+
+		$this->tbl_orders('order_id');
+
+		$data['orders'] = $this->global_model->get_by(array('order_id' => $order_id), true);
+
+		$this->tbl_order_parts('id');
+		$data['order_parts'] = $this->global_model->get_by(array('id' => $order_part_id, 'order_id' => $order_id), true);
+
+		if (empty($data['orders'])) {
+			$this->message->norecord_found('admin/orders/manage_order');
+		}
+
+		$data['title'] = 'Print Route';
+		$data['subview'] = $this->load->view('admin/orders/print_route', $data);
+	}
+
+	public function print_t_card($order_id = null, $order_part_id = null) {
+		if (empty($order_id)) {
+			//redirect manage invoice
+			$this->message->norecord_found('admin/orders/manage_order');
+		}
+
+		$this->tbl_orders('order_id');
+
+		$data['orders'] = $this->global_model->get_by(array('order_id' => $order_id), true);
+
+		$this->tbl_order_parts('id');
+		$data['order_parts'] = $this->global_model->get_by(array('id' => $order_part_id, 'order_id' => $order_id), true);
+
+		if (empty($data['orders'])) {
+			$this->message->norecord_found('admin/orders/manage_order');
+		}
+
+		$data['title'] = 'Print Route';
+		$data['subview'] = $this->load->view('admin/orders/print_route', $data);
+	}
+
     public function view_all_route($order_id = null) {
         if (empty($order_id)) {
             //redirect manage invoice

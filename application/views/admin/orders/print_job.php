@@ -126,9 +126,14 @@ $part_info = $CI->get_part_info($order_parts->part_id);
 								<br></td>
 							<td rowspan="2" colspan="2" valign="top" align="left">Test Cert:<br>
 							</td>
+							<td colspan="2" valign="bottom" align="left">Operation</td>
+							<td valign="bottom" align="left">Initials</td>
+							<td valign="bottom" align="left">Accepted</td>
+							<td valign="bottom" align="left">Rejected</td>
+							<td valign="bottom" align="left">Date</td>
+							<td valign="bottom" align="left">Time<br>Taken</td>
 						</tr>
 						<tr>
-
 						</tr>
 						<tr>
 							<td valign="top" align="left">Material:<br>
@@ -151,6 +156,14 @@ $part_info = $CI->get_part_info($order_parts->part_id);
 								<h3>£ <?php if (!empty($v_order->mat_cost)) {
 										echo $v_order->mat_cost;
 									} ?></h3></td>
+							<td colspan="2" valign="top" align="left"><h4><?php if (!empty($part_info->OperationF1)) {
+										echo $part_info->OperationF1;
+									} ?></h4></td>
+							<td valign="top" align="left"></td>
+							<td valign="top" align="left"></td>
+							<td valign="top" align="left"></td>
+							<td valign="top" align="left"><br></td>
+							<td valign="top" align="left"></td>
 						</tr>
 
 						<tr>
@@ -163,27 +176,6 @@ $part_info = $CI->get_part_info($order_parts->part_id);
 										echo $part_info->TreatmentCost;
 									} ?></h4></td>
 							<td colspan="2" valign="top" align="left">Treatment PO#:</td>
-							<td colspan="2" valign="bottom" align="left">Operation</td>
-							<td valign="bottom" align="left">Initials</td>
-							<td valign="bottom" align="left">Accepted</td>
-							<td valign="bottom" align="left">Rejected</td>
-							<td valign="bottom" align="left">Date</td>
-							<td valign="bottom" align="left">Time<br>Taken</td>
-						</tr>
-						<tr>
-							<td rowspan="2" colspan="2" valign="top" align="left">Inspection:</td>
-							<td rowspan="2" colspan="3" valign="top" align="left">Mat Stored:</td>
-							<td colspan="2" valign="top" align="left"><h4><?php if (!empty($part_info->OperationF1)) {
-										echo $part_info->OperationF1;
-									} ?></h4></td>
-							<td valign="top" align="left"></td>
-							<td valign="top" align="left"></td>
-							<td valign="top" align="left"></td>
-							<td valign="top" align="left"><br></td>
-							<td valign="top" align="left"></td>
-						</tr>
-
-						<tr>
 							<td colspan="2" valign="top" align="left"><h4><?php if (!empty($part_info->OperationF2)) {
 										echo $part_info->OperationF2;
 									} ?></h4></td>
@@ -192,6 +184,13 @@ $part_info = $CI->get_part_info($order_parts->part_id);
 							<td valign="top" align="left"></td>
 							<td valign="top" align="left"><br></td>
 							<td valign="top" align="left"></td>
+						</tr>
+						<tr>
+							<td rowspan="2" colspan="2" valign="top" align="left">Inspection:</td>
+							<td rowspan="2" colspan="3" valign="top" align="left">Mat Stored:</td>
+						</tr>
+
+						<tr>
 						</tr>
 						<tr>
 							<td colspan="2" valign="top" align="left">Inspection:</td>

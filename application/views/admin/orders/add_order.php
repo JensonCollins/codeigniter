@@ -57,7 +57,7 @@ if (!empty($orders->order_id)) {
                                 <input type="text" name="OrderNo" placeholder="Order Number"
                                        value="<?php
                                        if (!empty($orders->OrderNo)) {
-                                           echo $orders->OrderNo;
+                                           echo htmlspecialchars($orders->OrderNo);
                                        }
                                        ?>"
                                        class="form-control">
@@ -72,7 +72,7 @@ if (!empty($orders->order_id)) {
                                 <!-- <div class="input-group">
                                 <input class="form-control datepicker" name="DateIn" placeholder="Date In" data-format="dd-mm-yyyy" type="text" value="<?php
                                 if (!empty($orders->DateIn)) {
-                                    echo $orders->DateIn;
+                                    echo htmlspecialchars($orders->DateIn);
                                 }
                                 ?>">
 
@@ -86,7 +86,7 @@ if (!empty($orders->order_id)) {
                                     </div>
                                     <input class="form-control" placeholder='Enter Date in DD/MM/YYYY Format' value="<?php
                                     if (!empty($orders->DateIn)) {
-                                        echo $orders->DateIn;
+                                        echo htmlspecialchars($orders->DateIn);
                                     }
                                     ?>" type="text" name="DateIn">
                                 </div>
@@ -97,7 +97,7 @@ if (!empty($orders->order_id)) {
                                 <!-- <div class="input-group">
                                 <input class="form-control datepicker" name="DueDeliveryDate" placeholder="Due Delivery Date" data-format="dd-mm-yyyy" type="text" value="<?php
                                 if (!empty($orders->DueDeliveryDate)) {
-                                    echo $orders->DueDeliveryDate;
+                                    echo htmlspecialchars($orders->DueDeliveryDate);
                                 }
                                 ?>">
 
@@ -112,7 +112,7 @@ if (!empty($orders->order_id)) {
                                     </div>
                                     <input class="form-control" placeholder='Enter Date in DD/MM/YYYY Format' value="<?php
                                 if (!empty($orders->DueDeliveryDate)) {
-                                    echo $orders->DueDeliveryDate;
+                                    echo htmlspecialchars($orders->DueDeliveryDate);
                                 }
                                 ?>" type="text" name="DueDeliveryDate">
                                 </div>

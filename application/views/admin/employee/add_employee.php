@@ -30,7 +30,7 @@
                                     <label for="exampleInputEmail1">Name <span class="required">*</span></label>
                                     <input type="text" placeholder="First" name="name" class="form-control"
                                         value="<?php if(!empty($employee_login_details->name)){
-                                            echo $employee_login_details->name;
+                                            echo htmlspecialchars($employee_login_details->name);
                                         } ?>"
                                         >
                                 </div>
@@ -38,7 +38,7 @@
                                     <label>Username <span class="required">*</span></label>
                                     <input type="text" placeholder="Username" onchange="check_user_name(this.value)" name="user_name" class="form-control"
                                            value="<?php if(!empty($employee_login_details->user_name)){
-                                               echo $employee_login_details->user_name;
+                                               echo htmlspecialchars($employee_login_details->user_name);
                                            } ?>"
                                         >
                                     <div class="required" id="username_result"></div>
@@ -47,7 +47,7 @@
                                     <label for="exampleInputPassword1">Email <span class="required">*</span></label>
                                     <input type="email" placeholder="Email" name="email" class="form-control"
                                            value="<?php if(!empty($employee_login_details->email)){
-                                               echo $employee_login_details->email;
+                                               echo htmlspecialchars($employee_login_details->email);
                                            } ?>"
                                         >
                                 </div>

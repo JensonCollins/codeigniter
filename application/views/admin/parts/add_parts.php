@@ -34,7 +34,7 @@
 											<input type="text" name="PartNo" placeholder="Part Number"
 												   value="<?php
 												   if (!empty($parts->PartNo)) {
-													   echo $parts->PartNo;
+													   echo htmlspecialchars($parts->PartNo);
 												   }
 												   ?>"
 												   class="form-control">
@@ -47,7 +47,7 @@
 											<input type="text" name="Description" placeholder="Description"
 												   value="<?php
 												   if (!empty($parts->Description)) {
-													   echo $parts->Description;
+													   echo htmlspecialchars($parts->Description);
 												   }
 												   ?>"
 												   class="form-control">
@@ -61,7 +61,7 @@
 											<input type="text" placeholder="Customer" name="Customer"
 												   value="<?php
 												   if (!empty($parts->Customer)) {
-													   echo $parts->Customer;
+													   echo htmlspecialchars($parts->Customer);
 												   }
 												   ?>"
 												   class="form-control">
@@ -77,7 +77,7 @@
 											<input type="text" placeholder="Price" name="Price"
 												   value="<?php
 												   if (!empty($parts->Price)) {
-													   echo $parts->Price;
+													   echo htmlspecialchars($parts->Price);
 												   }
 												   ?>"
 												   class="form-control">
@@ -92,7 +92,7 @@
 											<input type="text" placeholder="Material" name="Material"
 												   value="<?php
 												   if (!empty($parts->Material)) {
-													   echo $parts->Material;
+													   echo htmlspecialchars($parts->Material);
 												   }
 												   ?>"
 												   class="form-control">
@@ -106,7 +106,7 @@
 											<input type="text" placeholder="Material Description" name="MatDescription"
 												   value="<?php
 												   if (!empty($parts->MatDescription)) {
-													   echo $parts->MatDescription;
+													   echo htmlspecialchars($parts->MatDescription);
 												   }
 												   ?>"
 												   class="form-control">
@@ -122,7 +122,7 @@
 											<input type="text" placeholder="Treatment" name="Treatment"
 												   value="<?php
 												   if (!empty($parts->Treatment)) {
-													   echo $parts->Treatment;
+													   echo htmlspecialchars($parts->Treatment);
 												   }
 												   ?>"
 												   class="form-control">
@@ -136,7 +136,7 @@
 											<input type="text" placeholder="TreatmentCost" name="TreatmentCost"
 												   value="<?php
 												   if (!empty($parts->TreatmentCost)) {
-													   echo $parts->TreatmentCost;
+													   echo htmlspecialchars($parts->TreatmentCost);
 												   }
 												   ?>"
 												   class="form-control">
@@ -153,7 +153,7 @@
 											<input type="text" placeholder="OperationF1" name="OperationF1"
 												   value="<?php
 												   if (!empty($parts->OperationF1)) {
-													   echo $parts->OperationF1;
+													   echo htmlspecialchars($parts->OperationF1);
 												   }
 												   ?>"
 												   class="form-control">
@@ -167,7 +167,7 @@
 											<input type="text" placeholder="OperationF2" name="OperationF2"
 												   value="<?php
 												   if (!empty($parts->OperationF2)) {
-													   echo $parts->OperationF2;
+													   echo htmlspecialchars($parts->OperationF2);
 												   }
 												   ?>"
 												   class="form-control">
@@ -183,7 +183,7 @@
 											<input type="text" placeholder="OperationF3" name="OperationF3"
 												   value="<?php
 												   if (!empty($parts->OperationF3)) {
-													   echo $parts->OperationF3;
+													   echo htmlspecialchars($parts->OperationF3);
 												   }
 												   ?>"
 												   class="form-control">
@@ -197,7 +197,7 @@
 											<input type="text" placeholder="OperationF4" name="OperationF4"
 												   value="<?php
 												   if (!empty($parts->OperationF4)) {
-													   echo $parts->OperationF4;
+													   echo htmlspecialchars($parts->OperationF4);
 												   }
 												   ?>"
 												   class="form-control">
@@ -213,7 +213,7 @@
 											<input type="text" placeholder="OperationF5" name="OperationF5"
 												   value="<?php
 												   if (!empty($parts->OperationF5)) {
-													   echo $parts->OperationF5;
+													   echo htmlspecialchars($parts->OperationF5);
 												   }
 												   ?>"
 												   class="form-control">
@@ -227,7 +227,7 @@
 											<input type="text" placeholder="OperationF6" name="OperationF6"
 												   value="<?php
 												   if (!empty($parts->OperationF6)) {
-													   echo $parts->OperationF6;
+													   echo htmlspecialchars($parts->OperationF6);
 												   }
 												   ?>"
 												   class="form-control">
@@ -243,7 +243,7 @@
 											<input type="text" placeholder="OperationF7" name="OperationF7"
 												   value="<?php
 												   if (!empty($parts->OperationF7)) {
-													   echo $parts->OperationF7;
+													   echo htmlspecialchars($parts->OperationF7);
 												   }
 												   ?>"
 												   class="form-control">
@@ -256,7 +256,7 @@
 											<input type="text" placeholder="OperationF8" name="OperationF8"
 												   value="<?php
 												   if (!empty($parts->OperationF8)) {
-													   echo $parts->OperationF8;
+													   echo htmlspecialchars($parts->OperationF8);
 												   }
 												   ?>"
 												   class="form-control">
@@ -272,7 +272,7 @@
 											<input type="text" placeholder="OperationF9" name="OperationF9"
 												   value="<?php
 												   if (!empty($parts->OperationF9)) {
-													   echo $parts->OperationF9;
+													   echo htmlspecialchars($parts->OperationF9);
 												   }
 												   ?>"
 												   class="form-control">
@@ -285,7 +285,7 @@
 											<input type="text" placeholder="OperationF10" name="OperationF10"
 												   value="<?php
 												   if (!empty($parts->OperationF10)) {
-													   echo $parts->OperationF10;
+													   echo htmlspecialchars($parts->OperationF10);
 												   }
 												   ?>"
 												   class="form-control">
@@ -302,7 +302,7 @@
 											<input type="text" placeholder="Issue" name="Issue"
 												   value="<?php
 												   if (!empty($parts->Issue)) {
-													   echo $parts->Issue;
+													   echo htmlspecialchars($parts->Issue);
 												   }
 												   ?>"
 												   class="form-control">
