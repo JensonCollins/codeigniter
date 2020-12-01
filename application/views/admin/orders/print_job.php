@@ -136,23 +136,23 @@ $part_info = $CI->get_part_info($order_parts->part_id);
 						<tr>
 						</tr>
 						<tr>
-							<td valign="top" align="left">Material:<br>
+							<td rowspan="2" valign="top" align="left">Material:<br>
 								<h4><?php if (!empty($part_info->Material)) {
 										echo $part_info->Material;
 									} else {
 										echo "N/A";
 									} ?></h4></td>
-							<td valign="top" align="left">Mat Supplier:<br>
+							<td rowspan="2" valign="top" align="left">Mat Supplier:<br>
 								<h3><?php if (!empty($v_order->mat_supplier)) {
 										echo $v_order->mat_supplier;
 									} ?></h3></td>
-							<td valign="top" align="left">Mat Desc:<br>
+							<td rowspan="2" valign="top" align="left">Mat Desc:<br>
 								<h3><?php if (!empty($part_info->MatDescription)) {
 										echo $part_info->MatDescription;
 									} else {
 										echo "N/A";
 									} ?></h3></td>
-							<td colspan="2" valign="top" align="left">Mat Cost:<br>
+							<td rowspan="2" colspan="2" valign="top" align="left">Mat Cost:<br>
 								<h3>£ <?php if (!empty($v_order->mat_cost)) {
 										echo $v_order->mat_cost;
 									} ?></h3></td>
@@ -167,15 +167,6 @@ $part_info = $CI->get_part_info($order_parts->part_id);
 						</tr>
 
 						<tr>
-							<td colspan="2" valign="top" align="left">Treatment:<br>
-								<h4><?php if (!empty($part_info->Treatment)) {
-										echo $part_info->Treatment;
-									} ?></h4></td>
-							<td valign="top" align="left">Treatment Cost:<br>
-								<h4>£ <?php if (!empty($part_info->TreatmentCost)) {
-										echo $part_info->TreatmentCost;
-									} ?></h4></td>
-							<td colspan="2" valign="top" align="left">Treatment PO#:</td>
 							<td colspan="2" valign="top" align="left"><h4><?php if (!empty($part_info->OperationF2)) {
 										echo $part_info->OperationF2;
 									} ?></h4></td>
@@ -186,17 +177,52 @@ $part_info = $CI->get_part_info($order_parts->part_id);
 							<td valign="top" align="left"></td>
 						</tr>
 						<tr>
-							<td rowspan="2" colspan="2" valign="top" align="left">Inspection:</td>
-							<td rowspan="2" colspan="3" valign="top" align="left">Mat Stored:</td>
+							<td rowspan="2" colspan="2" valign="top" align="left">Treatment:<br>
+								<h4><?php if (!empty($part_info->Treatment)) {
+										echo $part_info->Treatment;
+									} ?></h4></td>
+							<td rowspan="2" valign="top" align="left">Treatment Cost:<br>
+								<h4>£ <?php if (!empty($part_info->TreatmentCost)) {
+										echo $part_info->TreatmentCost;
+									} ?></h4></td>
+							<td rowspan="2" colspan="2" valign="top" align="left">Treatment PO#:</td>
+							<td colspan="2" valign="top" align="left"><h4><?php if (!empty($part_info->OperationF3)) {
+										echo $part_info->OperationF3;
+									} ?></h4></td>
+							<td valign="top" align="left"></td>
+							<td valign="top" align="left"></td>
+							<td valign="top" align="left"></td>
+							<td valign="top" align="left"><br></td>
+							<td valign="top" align="left"></td>
 						</tr>
-
 						<tr>
+							<td colspan="2" valign="top" align="left"><h4><?php if (!empty($part_info->OperationF4)) {
+										echo $part_info->OperationF4;
+									} ?></h4></td>
+							<td valign="top" align="left"></td>
+							<td valign="top" align="left"></td>
+							<td valign="top" align="left"></td>
+							<td valign="top" align="left"><br></td>
+							<td valign="top" align="left"></td>
 						</tr>
 						<tr>
 							<td colspan="2" valign="top" align="left">Inspection:</td>
+							<td colspan="3" valign="top" align="left">Mat Stored:</td>
+							<td colspan="2" valign="top" align="left"><h4><?php if (!empty($part_info->OperationF5)) {
+										echo $part_info->OperationF5;
+									} ?></h4></td>
+							<td valign="top" align="left"></td>
+							<td valign="top" align="left"></td>
+							<td valign="top" align="left"></td>
+							<td valign="top" align="left"><br></td>
+							<td valign="top" align="left"></td>
+						</tr>
+
+						<tr>
+							<td colspan="2" valign="top" align="left">Inspection:</td>
 							<td colspan="3"></td>
-							<td colspan="2" valign="top" align="left"><h4><?php if (!empty($part_info->OperationF3)) {
-										echo $part_info->OperationF3;
+							<td colspan="2" valign="top" align="left"><h4><?php if (!empty($part_info->OperationF6)) {
+										echo $part_info->OperationF6;
 									} ?></h4></td>
 							<td valign="top" align="left"></td>
 							<td valign="top" align="left"></td>
@@ -209,48 +235,6 @@ $part_info = $CI->get_part_info($order_parts->part_id);
 							<td colspan="2" valign="top" align="left">Feature</td>
 							<td colspan="1" valign="top" align="left">PASS/FAIL</td>
 							<td valign="top" align="left">DATE</td>
-							<td colspan="2" valign="top" align="left"></td>
-							<td valign="top" align="left"></td>
-							<td valign="top" align="left"><br></td>
-							<td valign="top" align="left"></td>
-							<td valign="top" align="left"></td>
-							<td valign="top" align="left"></td>
-						</tr>
-						<tr>
-							<td valign="top" align="left"><br></td>
-							<td colspan="2" valign="top" align="left"></td>
-							<td valign="top" align="left"></td>
-							<td valign="top" align="left"></td>
-							<td colspan="2" valign="top" align="left"><h4><?php if (!empty($part_info->OperationF5)) {
-										echo $part_info->OperationF5;
-									} ?></h4></td>
-							<td valign="top" align="left"></td>
-							<td valign="top" align="left"></td>
-							<td valign="top" align="left"></td>
-							<td valign="top" align="left"><br></td>
-							<td valign="top" align="left"></td>
-							</td>
-						</tr>
-						<tr>
-							<td valign="top" align="left"><br></td>
-							<td colspan="2" valign="top" align="left"></td>
-							<td valign="top" align="left"></td>
-							<td valign="top" align="left"></td>
-							<td colspan="2" valign="top" align="left"><h4><?php if (!empty($part_info->OperationF6)) {
-										echo $part_info->OperationF6;
-									} ?></h4></td>
-							<td valign="top" align="left"></td>
-							<td valign="top" align="left"></td>
-							<td valign="top" align="left"></td>
-							<td valign="top" align="left"><br></td>
-							<td valign="top" align="left"></td>
-							</td>
-						</tr>
-						<tr>
-							<td valign="top" align="left"><br></td>
-							<td colspan="2" valign="top" align="left"></td>
-							<td valign="top" align="left"></td>
-							<td valign="top" align="left"></td>
 							<td colspan="2" valign="top" align="left"><h4><?php if (!empty($part_info->OperationF7)) {
 										echo $part_info->OperationF7;
 									} ?></h4></td>
@@ -259,7 +243,6 @@ $part_info = $CI->get_part_info($order_parts->part_id);
 							<td valign="top" align="left"></td>
 							<td valign="top" align="left"><br></td>
 							<td valign="top" align="left"></td>
-							</td>
 						</tr>
 						<tr>
 							<td valign="top" align="left"><br></td>
@@ -274,7 +257,6 @@ $part_info = $CI->get_part_info($order_parts->part_id);
 							<td valign="top" align="left"></td>
 							<td valign="top" align="left"><br></td>
 							<td valign="top" align="left"></td>
-							</td>
 						</tr>
 						<tr>
 							<td valign="top" align="left"><br></td>
@@ -289,7 +271,6 @@ $part_info = $CI->get_part_info($order_parts->part_id);
 							<td valign="top" align="left"></td>
 							<td valign="top" align="left"><br></td>
 							<td valign="top" align="left"></td>
-							</td>
 						</tr>
 						<tr>
 							<td valign="top" align="left"><br></td>
@@ -304,7 +285,6 @@ $part_info = $CI->get_part_info($order_parts->part_id);
 							<td valign="top" align="left"></td>
 							<td valign="top" align="left"><br></td>
 							<td valign="top" align="left"></td>
-							</td>
 						</tr>
 						<tr>
 							<td valign="top" align="left"><br></td>

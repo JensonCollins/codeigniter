@@ -8,6 +8,12 @@ $part_info = $CI->get_part_info($order_parts->part_id);
 	* {
 		margin: 0
 	}
+	h6 {
+		font-size: 0.7em;
+	}
+	h5 {
+		font-size: 0.7em;
+	}
 </style>
 <?php $CI =& get_instance(); ?>
 <div class="box">
@@ -28,108 +34,92 @@ $part_info = $CI->get_part_info($order_parts->part_id);
 					<table width="170" cellpadding="2" border="1">
 						<tbody>
 						<tr>
-							<td colspan="3" valign="top" align="left">Job No:<br>
-								<h5><?php if (!empty($order_parts->id)) {
+							<td colspan="3" valign="top" align="left">
+								<h6><?php if (!empty($order_parts->id)) {
 										echo $order_parts->id;
-									} else {
-										echo "N/A";
-									} ?></h5>
+									}?></h6>
 							</td>
-							<td colspan="3" valign="top" align="left">Customer:<br>
-								<h5><?php if (!empty($orders->customer_id)) {
-										echo $CI->get_customer_name($orders->customer_id);
-									} else {
-										echo "N/A";
-									} ?></h5>
+							<td colspan="3" valign="top" align="left">
+								<h6><?php if (!empty($orders->customer_id)) {
+										echo $CI->get_customer_short_name($orders->customer_id);
+									}?></h6>
 							</td>
 						</tr>
 						<tr>
-							<td colspan="6" valign="top" align="left">Due Date:<br>
-								<h5><?php if (!empty($orders->DueDeliveryDate)) {
-										echo $orders->DueDeliveryDate;
-									} else {
-										echo "N/A";
-									} ?></h5>
+							<td colspan="6" valign="top" align="left">
+								<div class="d-flex">
+									<h5>Due Date:
+										<?php if (!empty($orders->DueDeliveryDate)) {
+											echo $orders->DueDeliveryDate;
+										}?></h5>
+								</div>
 							</td>
 						</tr>
 						<tr>
 							<td colspan="6">
-								Operations
+								<h5>Operations</h5>
 							</td>
 						</tr>
 						<tr>
 							<td colspan="6" align="left">
-								<h5><?php if(!empty($part_info->OperationF1)){echo $part_info->OperationF1;} else { echo '<br>'; }?></h5>
+								<h6><?php if(!empty($part_info->OperationF1)){echo $part_info->OperationF1;} else { echo '<br>'; }?></h6>
 							</td>
 						</tr>
 						<tr>
 							<td colspan="6" align="left">
-								<h5><?php if(!empty($part_info->OperationF2)){echo $part_info->OperationF2;} else { echo '<br>'; }?></h5>
+								<h6><?php if(!empty($part_info->OperationF2)){echo $part_info->OperationF2;} else { echo '<br>'; }?></h6>
 							</td>
 						</tr>
 						<tr>
 							<td colspan="6" align="left">
-								<h5><?php if(!empty($part_info->OperationF3)){echo $part_info->OperationF3;} else { echo '<br>'; }?></h5>
+								<h6><?php if(!empty($part_info->OperationF3)){echo $part_info->OperationF3;} else { echo '<br>'; }?></h6>
 							</td>
 						</tr>
 						<tr>
 							<td colspan="6" align="left">
-								<h5><?php if(!empty($part_info->OperationF4)){echo $part_info->OperationF4;} else { echo '<br>'; }?></h5>
+								<h6><?php if(!empty($part_info->OperationF4)){echo $part_info->OperationF4;} else { echo '<br>'; }?></h6>
 							</td>
 						</tr>
 						<tr>
 							<td colspan="6" align="left">
-								<h5><?php if(!empty($part_info->OperationF5)){echo $part_info->OperationF5;} else { echo '<br>'; }?></h5>
+								<h6><?php if(!empty($part_info->OperationF5)){echo $part_info->OperationF5;} else { echo '<br>'; }?></h6>
 							</td>
 						</tr>
 						<tr>
 							<td colspan="6" align="left">
-								<h5><?php if(!empty($part_info->OperationF6)){echo $part_info->OperationF6;} else { echo '<br>'; }?></h5>
+								<h6><?php if(!empty($part_info->OperationF6)){echo $part_info->OperationF6;} else { echo '<br>'; }?></h6>
 							</td>
 						</tr>
 						<tr>
 							<td colspan="6" align="left">
-								<h5><?php if(!empty($part_info->OperationF7)){echo $part_info->OperationF7;} else { echo '<br>'; }?></h5>
+								<h6><?php if(!empty($part_info->OperationF7)){echo $part_info->OperationF7;} else { echo '<br>'; }?></h6>
 							</td>
 						</tr>
 						<tr>
 							<td colspan="6" align="left">
-								<h5><?php if(!empty($part_info->OperationF8)){echo $part_info->OperationF8;} else { echo '<br>'; }?></h5>
-							</td>
-						</tr>
-						<tr>
-							<td colspan="6" align="left">
-								<h5><?php if(!empty($part_info->OperationF9)){echo $part_info->OperationF9;} else { echo '<br>'; }?></h5>
-							</td>
-						</tr>
-						<tr>
-							<td colspan="6" align="left">
-								<h5><?php if(!empty($part_info->OperationF10)){echo $part_info->OperationF10;} else { echo '<br>'; }?></h5>
+								<h6><?php if(!empty($part_info->OperationF8)){echo $part_info->OperationF8;} else { echo '<br>'; }?></h6>
 							</td>
 						</tr>
 						<tr>
 							<td colspan="3" valign="top" align="left">
-								Quantity:<br>
-								<h5><?php if(!empty($order_parts->quantity)) { echo $order_parts->quantity; } else { echo "N/A"; } ?></h5>
+								<h5>Qty:</h5>
+								<h6><?php if(!empty($order_parts->quantity)) { echo $order_parts->quantity; }?></h6>
 							</td>
-							<td colspan="3" valign="top" align="left">Part #:<br>
-								<h5><?php if(!empty($part_info->PartNo)) { echo $part_info->PartNo; } else { echo "N/A"; } ?></h5>
+							<td colspan="3">
+								<h5>Issue: <?php if(!empty($part_info->Issue)) { echo $part_info->Issue;} ?></h5>
 							</td>
 						</tr>
 						<tr>
-							<td colspan="6">
-								Issue:<br>
-								<h5><?php if(!empty($part_info->Issue)) { echo $part_info->Issue;} ?></h5>
+							<td colspan="6" valign="top" align="left">
+								<h5>Part #: <?php if(!empty($part_info->PartNo)) { echo $part_info->PartNo; }?></h5>
 							</td>
 						</tr>
 						<tr>
 							<td colspan="6" align="left">
-								Description:
-								<h5><?php if (!empty($part_info->Description)) {
+								<h5>Description:</h5>
+								<h6><?php if (!empty($part_info->Description)) {
 										echo $part_info->Description;
-									} else {
-										echo "N/A";
-									} ?></h5>
+									}?></h6>
 							</td>
 						</tr>
 						</tbody>
