@@ -536,6 +536,8 @@ class Orders extends Admin_Controller {
 
 		$this->tbl_orders('order_id');
 
+		$data['order_id'] = $order_id;
+		$data['order_part_id'] = $order_part_id;
 		$data['orders'] = $this->global_model->get_by(array('order_id' => $order_id), true);
 
 		$this->tbl_order_parts('id');
@@ -545,8 +547,9 @@ class Orders extends Admin_Controller {
 			$this->message->norecord_found('admin/orders/manage_order');
 		}
 
-		$data['title'] = 'Print Route';
-		$data['subview'] = $this->load->view('admin/orders/print_route', $data);
+		$data['title'] = 'View Job';
+		$data['subview'] = $this->load->view('admin/orders/view_t_card', $data, true);
+		$this->load->view('admin/_layout_main', $data);
 	}
 
 	public function print_t_card($order_id = null, $order_part_id = null) {
@@ -567,7 +570,7 @@ class Orders extends Admin_Controller {
 		}
 
 		$data['title'] = 'Print Route';
-		$data['subview'] = $this->load->view('admin/orders/print_route', $data);
+		$data['subview'] = $this->load->view('admin/orders/print_t_card', $data);
 	}
 
     public function view_all_route($order_id = null) {

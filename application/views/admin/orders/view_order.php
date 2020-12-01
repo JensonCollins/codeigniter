@@ -80,8 +80,8 @@
                                     <a href="<?php echo base_url('admin/orders/view_route/'.$orders->order_id.'/'.$v_order->id) ?>" target = "_blank" class="btn btn-xs btn-info" title="" data-toggle="tooltip" data-placement="top" data-original-title="View Route">Route</a> | 
                                     <a href="<?php echo base_url('admin/orders/print_route/'.$orders->order_id.'/'.$v_order->id) ?>" target = "_blank" class="btn btn-xs btn-info" title="" data-toggle="tooltip" data-placement="top" data-original-title="print Route">Print Route</a> |
                                     <a href="<?php echo base_url('admin/orders/print_all_route/'.$orders->order_id) ?>" target = "_blank" class="btn btn-xs btn-info" title="" data-toggle="tooltip" data-placement="top" data-original-title="Print All Routes">Print All Routes</a> |
-                                    <a href="<?php echo base_url('admin/orders/view_t_card/'.$orders->order_id) ?>" target = "_blank" class="btn btn-xs btn-success" title="" data-toggle="tooltip" data-placement="top" data-original-title="View T-Card">View T-Card</a> |
-                                    <a href="<?php echo base_url('admin/orders/print_t_card/'.$orders->order_id) ?>" target = "_blank" class="btn btn-xs btn-success" title="" data-toggle="tooltip" data-placement="top" data-original-title="Print T-Card">Print T-Card</a>
+                                    <a href="<?php echo base_url('admin/orders/view_t_card/'.$orders->order_id.'/'.$v_order->id) ?>" target = "_blank" class="btn btn-xs btn-success" title="" data-toggle="tooltip" data-placement="top" data-original-title="View T-Card">View T-Card</a> |
+                                    <a href="<?php echo base_url('admin/orders/print_t_card/'.$orders->order_id.'/'.$v_order->id) ?>" target = "_blank" class="btn btn-xs btn-success" title="" data-toggle="tooltip" data-placement="top" data-original-title="Print T-Card">Print T-Card</a>
                             </td>
                         </tr>
                             <?php $counter ++?>
