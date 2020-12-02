@@ -33,8 +33,6 @@ $part_info = $CI->get_part_info($order_parts->part_id);
 
 
 		<div id="printableArea">
-
-
 			<div class="row ">
 				<div class="col-md-12">
 					<table width="170" cellpadding="2" border="1">
