@@ -15,6 +15,12 @@ $part_info = $CI->get_part_info($order_parts->part_id);
 		font-size: 0.7em;
 	}
 </style>
+<style type="text/css" media="print">
+	@page {
+		size: auto;   /* auto is the initial value */
+		margin: 0;  /* this affects the margin in the printer settings */
+	}
+</style>
 <?php $CI =& get_instance(); ?>
 <div class="box">
 	<div class="box-header box-header-background with-border">
@@ -102,8 +108,7 @@ $part_info = $CI->get_part_info($order_parts->part_id);
 						</tr>
 						<tr>
 							<td colspan="3" valign="top" align="left">
-								<h5>Qty:</h5>
-								<h6><?php if(!empty($order_parts->quantity)) { echo $order_parts->quantity; }?></h6>
+								<h5>Qty: <?php if(!empty($order_parts->quantity)) { echo $order_parts->quantity; }?></h5>
 							</td>
 							<td colspan="3">
 								<h5>Issue: <?php if(!empty($part_info->Issue)) { echo $part_info->Issue;} ?></h5>
