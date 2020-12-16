@@ -614,4 +614,24 @@ class Orders extends Admin_Controller {
         $data['subview'] = $this->load->view('admin/orders/print_all_route', $data);
     }
 
+    public function print_all_t_card($order_id = null) {
+        if (empty($order_id)) {
+            //redirect manage invoice
+            $this->message->norecord_found('admin/orders/manage_order');
+        }
+
+        $this->tbl_orders('order_id');
+
+        $data['orders'] = $this->global_model->get_by(array('order_id' => $order_id), true);
+
+        $data['order_parts'] = $this->orders_model->get_order_parts_info($data['orders']->order_id);
+
+        if (empty($data['orders'])) {
+            $this->message->norecord_found('admin/orders/manage_order');
+        }
+
+        $data['title'] = 'View Job';
+        $data['subview'] = $this->load->view('admin/orders/print_all_t_card', $data);
+    }
+
 }

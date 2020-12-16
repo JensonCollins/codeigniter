@@ -55,11 +55,11 @@
 									<td class="vertical-td">
                                         <a href="<?php echo base_url('admin/jobs/edit_job/'.$v_order['order_id'].'/'.$v_order['job_no'] ) ?>" target = "_blank" class="btn btn-customs btn-xs" title="" data-toggle="tooltip" data-placement="top" data-original-title="Edit Job">Edit</a> |
 					<a href="<?php echo base_url('admin/orders/view_job/'.$v_order['order_id'].'/'.$v_order['job_no'] ) ?>" target = "_blank" class="btn btn-customs btn-xs" title="" data-toggle="tooltip" data-placement="top" data-original-title="View Job">Job Card</a> | 
-                                        <a href="<?php echo base_url('admin/orders/print_job/'.$v_order['order_id'].'/'.$v_order['job_no'] ) ?>" target="_blank" data-toggle="tooltip" data-placement="top" data-original-title="Print Job">Print Job Card</a> | 
+                                        <a href="<?php echo base_url('admin/orders/print_job/'.$v_order['order_id'].'/'.$v_order['job_no'] ) ?>" target="_blank" class="btn btn-customs btn-xs" data-toggle="tooltip" data-placement="top" data-original-title="Print Job">Print Job Card</a> | 
                                         <a href="<?php echo base_url('admin/orders/view_route/'.$v_order['order_id'].'/'.$v_order['job_no']) ?>" target = "_blank" class="btn btn-customs btn-xs" title="" data-toggle="tooltip" data-placement="top" data-original-title="View Route">Route Card</a> | 
                                         <a href="<?php echo base_url('admin/orders/print_route/'.$v_order['order_id'].'/'.$v_order['job_no']) ?>" target = "_blank" class="btn btn-customs btn-xs" title="" data-toggle="tooltip" data-placement="top" data-original-title="print Route">Print Route Card</a> |
 										<a href="<?php echo base_url('admin/orders/view_t_card/'.$v_order['order_id'].'/'.$v_order['job_no']) ?>" target = "_blank" class="btn btn-customs btn-xs" title="" data-toggle="tooltip" data-placement="top" data-original-title="View T-Card">T-Card</a> |
-										<a href="<?php echo base_url('admin/orders/print_t_card/'.$v_order['order_id'].'/'.$v_order['job_no']) ?>" target = "_blank" class="btn btn-customs btn-xs" title="" data-toggle="tooltip" data-placement="top" data-original-title="Print T-Card">print T-Card</a>
+										<a href="<?php echo base_url('admin/orders/print_t_card/'.$v_order['order_id'].'/'.$v_order['job_no']) ?>" target = "_blank" class="btn btn-customs btn-xs" title="" data-toggle="tooltip" data-placement="top" data-original-title="Print T-Card">Print T-Card</a>
 									</td>
 
                                 </tr>
