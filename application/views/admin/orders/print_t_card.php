@@ -39,14 +39,14 @@ $part_info = $CI->get_part_info($order_parts->part_id);
 						<tbody>
 						<tr>
 							<td colspan="3" valign="top" align="left">
-								<h6><?php if (!empty($order_parts->id)) {
+								<h5><?php if (!empty($order_parts->id)) {
 										echo $order_parts->id;
-									}?></h6>
+									}?></h5>
 							</td>
 							<td colspan="3" valign="top" align="left">
-								<h6><?php if (!empty($orders->customer_id)) {
+								<h5><?php if (!empty($orders->customer_id)) {
 										echo $CI->get_customer_short_name($orders->customer_id);
-									}?></h6>
+									}?></h5>
 							</td>
 						</tr>
 						<tr>

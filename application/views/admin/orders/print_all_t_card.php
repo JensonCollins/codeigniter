@@ -6,12 +6,23 @@ $CI =& get_instance();
 	* {
 		margin: 0
 	}
-
+	h6 {
+		font-size: 0.7em;
+	}
+	h5 {
+		font-size: 0.7em;
+	}
 	@media print {
 		table {
 			page-break-inside: avoid;
 			page-break-after: auto
 		}
+	}
+</style>
+<style type="text/css" media="print">
+	@page {
+		size: auto;   /* auto is the initial value */
+		margin: 0;  /* this affects the margin in the printer settings */
 	}
 </style>
 <div class="box">
@@ -32,14 +43,14 @@ $CI =& get_instance();
 							<tbody>
 							<tr>
 								<td colspan="3" valign="top" align="left">
-									<h6><?php if (!empty($v_order->id)) {
+									<h5><?php if (!empty($v_order->id)) {
 											echo $v_order->id;
-										}?></h6>
+										}?></h5>
 								</td>
 								<td colspan="3" valign="top" align="left">
-									<h6><?php if (!empty($orders->customer_id)) {
+									<h5><?php if (!empty($orders->customer_id)) {
 											echo $CI->get_customer_short_name($orders->customer_id);
-										}?></h6>
+										}?></h5>
 								</td>
 							</tr>
 							<tr>
